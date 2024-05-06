@@ -26,6 +26,7 @@ public class MainMenu : MonoBehaviour
     public void SettingsButton() //Code after you click the Settings Button
     { 
         Debug.Log("Button Click Successful! (Settings)"); 
+        
     }
 
     public void ExitButton() //Code after you click the Exit Button
