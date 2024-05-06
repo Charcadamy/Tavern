@@ -5,6 +5,16 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Audio;
 
+
+
+
+// DO NOT TOUCH -Ten31
+// DO NOT TOUCH -Ten31
+// DO NOT TOUCH -Ten31
+// DO NOT TOUCH -Ten31
+// DO NOT TOUCH -Ten31
+// DO NOT TOUCH -Ten31
+
 public class OptionsMenu : MonoBehaviour
 {
     public Toggle fullscreenTog, vsyncTog;
