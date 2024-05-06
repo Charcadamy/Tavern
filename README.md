@@ -1,8 +1,7 @@
 # Tavern
 
 
-TavernDefence* Game
+TavernDefence Game
 
 > Built on Unity
-> *Title is not final.
 
