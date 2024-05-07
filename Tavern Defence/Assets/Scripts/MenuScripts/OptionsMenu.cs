@@ -10,7 +10,7 @@ public class OptionsMenu : MonoBehaviour
 {
 
     public Toggle fullscreenTog, vsyncTog;
-    
+
     public List<ResItem> resolutions = new List<ResItem>();
     private int selectedResolution;
 
@@ -31,6 +31,28 @@ public class OptionsMenu : MonoBehaviour
             vsyncTog.isOn = true;
         }
 
+        bool foundRes = false;
+        for(int i = 0; i < resolutions.Count; i++)
+        {
+            if (Screen.width == resolutions[i].horizontal && Screen.height == resolutions[i].vertical)
+            {
+                foundRes = true;
+
+                selectedResolution = i;
+            }
+        }
+
+        if (! foundRes)
+        {
+            ResItem newRes = new ResItem();
+            newRes.horizontal = Screen.width;
+            newRes.vertical = Screen.height;
+
+            resolutions.Add(newRes);
+            selectedResolution = resolutions.Count - 1;
+
+            updateResLabel();
+        }
     }
 
     // Update is called once per frame
@@ -42,29 +64,31 @@ public class OptionsMenu : MonoBehaviour
     public void ResLeft()
     {
         selectedResolution--;
-        if(selectedResolution < 0)
+        if (selectedResolution < 0)
         {
             selectedResolution = 0;
         }
+        updateResLabel();
     }
-    
+
     public void ResRight()
     {
         selectedResolution++;
-        if(selectedResolution > resolutions.Count - 1)
+        if (selectedResolution > resolutions.Count - 1)
         {
             selectedResolution = resolutions.Count - 1;
         }
+        updateResLabel();
     }
 
-    public void updateResLabbel()
+    public void updateResLabel()
     {
         resolutionLabel.text = resolutions[selectedResolution].horizontal.ToString() + " x " + resolutions[selectedResolution].vertical.ToString();
     }
 
     public void ApplyGraphics()
     {
-        Screen.fullScreen = fullscreenTog.isOn;
+        //Screen.fullScreen = fullscreenTog.isOn;
 
         if (vsyncTog.isOn)
         {
@@ -73,10 +97,11 @@ public class OptionsMenu : MonoBehaviour
         {
             QualitySettings.vSyncCount = 0;
         }
+
+        Screen.SetResolution(resolutions[selectedResolution].horizontal, resolutions[selectedResolution].vertical, fullscreenTog.isOn);
     }
-
 }
-
+[System.Serializable]
 public class ResItem
 {
     public int horizontal, vertical;
