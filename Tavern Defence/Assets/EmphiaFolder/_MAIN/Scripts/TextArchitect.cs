@@ -46,5 +46,44 @@ public class TextArchitect
         this.tmpro_world = tmpro_world;
     }
 
+    public Coroutine Build(string text)
+    {
+        preText = "";
+        targetText = text;
+
+        Stop();
+
+        buildProcess = Tmpro.StartCoroutine(Building());
+        return buildProcess;
+    }
+    // Append text to what is already in the text architect
+    public Coroutine Append(string text)
+    {
+        preText = Tmpro.text;
+        targetText = text;
+
+        Stop();
+
+        buildProcess = Tmpro.StartCoroutine(Building());
+        return buildProcess;
+    }
+
+    private Coroutine buildProcess = null;
+    //The buildProcess is what's going to be handling text generation
+    public bool isBuilding => buildProcess != null;
+
+    public void Stop()
+    {
+        if (!isBuilding)
+            return;
+
+        Tmpro.StopCoroutine(buildProcess);
+        buildProcess = null;
+    }
+
+    IEnumerator Building()
+    {
+        yield return null;
+    }
 
 }
