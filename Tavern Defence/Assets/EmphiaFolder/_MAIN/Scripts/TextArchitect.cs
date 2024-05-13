@@ -83,7 +83,65 @@ public class TextArchitect
 
     IEnumerator Building()
     {
-        yield return null;
+        Prepare();
+
+
+        switch(buildMethod)
+        {
+            case BuildMethod.typewriter:
+                yield return Build_Typewriter();
+                break;
+            case BuildMethod.fade:
+                yield return Build_Fade();
+                break;
+        }
+        //Automatically applies text
     }
 
+    private void OnComplete()
+    {
+        buildProcess = null;
+    }
+    //Basic logic that processes when build is done
+
+    private void Prepare()
+    {
+        switch(buildMethod)
+        {
+            case BuildMethod.instant:
+                Prepare_Instant();
+                break;
+            case BuildMethod.typewriter:
+                Prepare_Typewriter();
+                break;
+            case BuildMethod.fade:
+                Prepare_Fade();
+                break;
+        }
+    }
+    //Prepares based on whichever build method
+
+    private void Prepare_Instant()
+    {
+        Tmpro.color = Tmpro.color;
+        Tmpro.text = fullTargetText;
+        Tmpro.ForceMeshUpdate();
+        Tmpro.maxVisibleCharacters = Tmpro.textInfo.characterCount;
+    }
+    private void Prepare_Typewriter()
+    {
+
+    }
+    private void Prepare_Fade()
+    {
+
+    }
+    private IEnumerable Build_Typewriter()
+    {
+        yield return null;
+    }
+    private IEnumerable Build_Fade()
+    {
+        yield return null;
+    }
 }
