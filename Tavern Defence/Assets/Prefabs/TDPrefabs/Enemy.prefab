@@ -163,3 +163,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 8341822288057442674}
   moveSpeed: 2
+  target: {fileID: 0}
+  pathIndex: 0
