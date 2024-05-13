@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    
+
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
 
     [Header("Attributes")]
     [SerializeField] private float moveSpeed = 2f;
 
-    private Transform target;
-    private int pathIndex = -0;
+
+    [Header("Variables")]
+    [SerializeField]private Transform target;
+    [SerializeField]private int pathIndex = -0;
    
     void Start()
     {
