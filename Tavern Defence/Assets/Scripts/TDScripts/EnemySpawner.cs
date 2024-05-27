@@ -30,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
    // Determines how many enemies to spawn based on the number of base enemies multipled by the current wave raised to the power of the scaling factor
     private int EnemiesPerWave()
     {
+        //Raises the base (the current wave) to the difficulty scaling factor 
         return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyScalingFactor));
     }
 
@@ -46,10 +47,18 @@ public class EnemySpawner : MonoBehaviour
 
         timeSinceLastSpawn += Time.deltaTime;
 
-        if (timeSinceLastSpawn >= (1f / enemiesPerSecond)){
-            Debug.Log("Spawn Enemy");
+        if (timeSinceLastSpawn >= (1f / enemiesPerSecond) && enemiesLeftToSpawn > 0){
+            SpawnEnemy();
+            enemiesLeftToSpawn--;
+            enemiesAlive++;
             timeSinceLastSpawn = 0f;
-        
         }
+    }
+
+
+    private void SpawnEnemy()
+    {
+        GameObject prefabToSpawn = enemyPrefabs[0];
+        Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
     }
 }
