@@ -10,7 +10,7 @@ public class DialogueSystemB : MonoBehaviour
     [SerializeField] List<string> lines;
 
     [SerializeField]
-    [Range(0f,1f)]
+    [Range(0f, 1f)]
     float visibleTextPercent;
     [SerializeField] float timePerLetter = 0.05f;
     float totalTimeToType, currentTime;
@@ -19,12 +19,12 @@ public class DialogueSystemB : MonoBehaviour
 
     private void Start()
     {
-        PushText();
+        CycleLine();
     }
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             PushText();
         }
@@ -33,7 +33,7 @@ public class DialogueSystemB : MonoBehaviour
 
     private void TypeOutText()
     {
-        if(visibleTextPercent >= 1f)
+        if (visibleTextPercent >= 1f)
         {
             return;
         }
@@ -56,6 +56,7 @@ public class DialogueSystemB : MonoBehaviour
             UpdateText();
             return;
         }
+
         CycleLine();
     }
 
