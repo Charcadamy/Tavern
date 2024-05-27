@@ -49,6 +49,7 @@ public class EnemySpawner : MonoBehaviour
         if (timeSinceLastSpawn >= (1f / enemiesPerSecond)){
             Debug.Log("Spawn Enemy");
             timeSinceLastSpawn = 0f;
+        
         }
     }
 }
