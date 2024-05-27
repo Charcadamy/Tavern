@@ -12,7 +12,7 @@ public class DialogueSystemB : MonoBehaviour
     [SerializeField]
     [Range(0f,1f)]
     float visibleTextPercent;
-    [SerializeField] float timePerLetter = 0.0005f;
+    [SerializeField] float timePerLetter = 0.05f;
     float totalTimeToType, currentTime;
 
     string lineToShow;
@@ -40,13 +40,28 @@ public class DialogueSystemB : MonoBehaviour
         currentTime += Time.deltaTime;
         visibleTextPercent = currentTime / totalTimeToType;
         visibleTextPercent = Mathf.Clamp(visibleTextPercent, 0f, 1f);
+        UpdateText();
+    }
+
+    void UpdateText()
+    {
         int totalLetterToShow = (int)(lineToShow.Length * visibleTextPercent);
         text.text = lineToShow.Substring(0, totalLetterToShow);
     }
-
     private void PushText()
     {
-        if(lines.Count == 0)
+        if (visibleTextPercent < 1f)
+        {
+            visibleTextPercent = 1f;
+            UpdateText();
+            return;
+        }
+        CycleLine();
+    }
+
+    private void CycleLine()
+    {
+        if (lines.Count == 0)
         {
             Debug.Log("Lines no more.");
             return;
