@@ -8,7 +8,7 @@ using System;
 public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
-    [SerializeField] List<string> lines;
+    DialogueContainer currentDialogue;
 
     [SerializeField]
     [Range(0f,1f)]
@@ -19,10 +19,16 @@ public class DialogueSystem : MonoBehaviour
 
     String lineToShow;
 
+    int index;
+
+    [SerializeField] DialogueContainer debugDialogueContainer;
 
     private void Start()
     {
-        CycleLine();
+        if (debugDialogueContainer != null)
+        {
+            InitiateDialogue(debugDialogueContainer);
+        }
     }
 
     private void Update()
@@ -34,6 +40,13 @@ public class DialogueSystem : MonoBehaviour
         }
 
         TypeOutText();
+    }
+
+    public void InitiateDialogue(DialogueContainer dialogueContainer)
+    {
+        currentDialogue = dialogueContainer;
+        index = 0;
+        CycleLine();
     }
 
     private void TypeOutText()
@@ -71,15 +84,14 @@ public class DialogueSystem : MonoBehaviour
 
     private void CycleLine()
     {
-        if (lines.Count == 0)
+        if (index >= currentDialogue.lines.Count)
         {
             Debug.Log("No more lines available.");
             return;
         }
         //Just tells when there are no more strings/lines to display.
 
-        lineToShow = lines[0];
-        lines.RemoveAt(0);
+        lineToShow = currentDialogue.lines[index].line;
         //Removes lines one by one to display.
 
         totalTimeToType = lineToShow.Length * timePerLetter;
@@ -88,5 +100,7 @@ public class DialogueSystem : MonoBehaviour
         //Text typeout.
 
         text.text = "";
+
+        index += 1;
     }
 }

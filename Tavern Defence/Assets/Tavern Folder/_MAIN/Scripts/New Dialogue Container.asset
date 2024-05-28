@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bf5bc137deb7044783985a383231af7, type: 3}
+  m_Name: New Dialogue Container
+  m_EditorClassIdentifier: 
+  lines:
+  - line: Test 1
+  - line: Test 2
+  - line: This is the third line, I mean test.
+  - line: Testing ig. #4
+  - line: Maybe over there is test 5
