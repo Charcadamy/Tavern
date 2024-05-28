@@ -11,7 +11,7 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] List<string> lines;
 
     [SerializeField]
-    [Range(0f, 1f)]
+    [Range(0f,1f)]
     float visibleTextPercent;
     [SerializeField] float timePerLetter = 0.05f;
     float totalTimeToType, currentTime;
@@ -62,6 +62,7 @@ public class DialogueSystem : MonoBehaviour
         if(visibleTextPercent < 1f)
         {
             visibleTextPercent = 1f;
+            UpdateText();
             return;
         }
 
