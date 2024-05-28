@@ -1,20 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using Unity.VisualScripting;
+using System;
 
 public class DialogueSystem : MonoBehaviour
 {
-    [SerializeField] private DialogueContainer dialogueContainer = new DialogueContainer();
+    [SerializeField] TextMeshProUGUI text;
+    [SerializeField] List<string> lines;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            PushText();
+            //Pulling from the method called PushText()
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void PushText()
     {
-        
+        if(lines.Count == 0)
+        {
+            Debug.Log("No more lines available.");
+            return;
+        }
+
+        text.text = lines[0];
+        lines.RemoveAt(0);
     }
 }
