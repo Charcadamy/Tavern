@@ -1808,59 +1808,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982685030}
   m_CullTransparentMesh: 1
---- !u!1 &985111598
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 985111600}
-  - component: {fileID: 985111599}
-  m_Layer: 0
-  m_Name: DialogueSystemController C
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &985111599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 985111598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61581206924ddae4eb81a303a5515558, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1276108372}
-  lines:
-  - MY NAME?? RICHARD OF NYRMIR
-  - MY NAME IS RICHARD. WHAT IS YOURS SILLY LITTLE GOOFBALL???
-  - I AM BIPEDAL!!!! IT IS TRUE.
-  - YOURE MOTHER AND I HAD COITUS
-  - MoZSRICK TAUGHT ME THAT ONE
-  visibleTextPercent: 0
-  timePerLetter: 0.05
---- !u!4 &985111600
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 985111598}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 645.49725, y: 337.7444, z: -4.3230457}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1087587305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,7 +1894,7 @@ GameObject:
   - component: {fileID: 1211739500}
   - component: {fileID: 1211739501}
   m_Layer: 0
-  m_Name: DialogueSystem Controller
+  m_Name: DialogueSystemController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1980,10 +1927,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 228a0a91bbcd402458bed9eb5bfd892d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueContainer:
-    root: {fileID: 933108517}
-    nameText: {fileID: 640540017}
-    dialogueText: {fileID: 1276108372}
+  text: {fileID: 1276108372}
+  lines:
+  - Better sleep higher so the hells don't take you back.
+  - YOU'RE A BABY [BOINKER]!
+  - Tyr? Did I hear TYR??? TYR???!!!1??!
+  - I had a wife once. HEH, I killed her :3
+  - Don't take my eyeballs please :C
+  - Moszrick taught me that one!
+  visibleTextPercent: 0
+  timePerLetter: 0.05
 --- !u!1 &1223758781
 GameObject:
   m_ObjectHideFlags: 0
@@ -3035,4 +2988,3 @@ SceneRoots:
   m_Roots:
   - {fileID: 1246817311}
   - {fileID: 730232459}
-  - {fileID: 985111600}
