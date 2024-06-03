@@ -27,6 +27,14 @@ public class PauseMenu : MonoBehaviour
                 PauseMenuObject.SetActive(false);
             }
         }
+        if (PauseMenuObject.activeInHierarchy)
+        {
+            PauseGame();
+        }    
+        else
+        {
+            ResumeGame();
+        }
     }
     public void PauseButton()
     {
@@ -35,5 +43,13 @@ public class PauseMenu : MonoBehaviour
     public void BacktoMenu()
     {
 
+    }
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+    }    
+    public void ResumeGame()
+    {
+        Time.timeScale = 1f;
     }
 }
