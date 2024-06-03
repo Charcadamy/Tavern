@@ -8,6 +8,7 @@ using System;
 public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
+    [SerializeField] TextMeshProUGUI nameTag;
     DialogueContainer currentDialogue;
 
     [SerializeField]
@@ -93,6 +94,10 @@ public class DialogueSystem : MonoBehaviour
 
         lineToShow = currentDialogue.lines[index].line;
         //Removes lines one by one to display.
+        if(currentDialogue.lines[index].actor != null)
+        {
+            nameTag.text = currentDialogue.lines[index].actor.Name;
+        }
 
         totalTimeToType = lineToShow.Length * timePerLetter;
         currentTime = 0f;

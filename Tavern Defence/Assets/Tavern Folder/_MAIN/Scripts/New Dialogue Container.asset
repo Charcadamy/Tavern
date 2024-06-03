@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - line: Test 1
+    actor: {fileID: 0}
   - line: Test 2
-  - line: This is the third line, I mean test.
+    actor: {fileID: 0}
+  - line: hello i am russia, are you the russia?
+    actor: {fileID: 0}
   - line: Testing ig. #4
+    actor: {fileID: 0}
   - line: Maybe over there is test 5
+    actor: {fileID: 0}
