@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float timeBetweenWaves = 5f;
     [SerializeField] private float difficultyScalingFactor = 0.75f;
 
+
+    [Header("Events")]
+    public static UnityEvent onEnemyDestroy = new UnityEvent();
+
+
+
     private int currentWave = 1;
     private float timeSinceLastSpawn;
     private int enemiesAlive;
@@ -21,8 +28,14 @@ public class EnemySpawner : MonoBehaviour
     private bool isSpawning = false;
 
 
-    void StartWave()
+    private void Awake()
     {
+        onEnemyDestroy.AddListener(EnemyDestroyed);
+    }
+
+    IEnumerator StartWave()
+    {
+        yield return new WaitForSeconds(timeBetweenWaves);
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();
     }
@@ -38,6 +51,7 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         StartWave();
+        StartCoroutine(StartWave());
     }
 
 
@@ -53,6 +67,12 @@ public class EnemySpawner : MonoBehaviour
             enemiesAlive++;
             timeSinceLastSpawn = 0f;
         }
+
+
+        if(enemiesAlive == 0 && enemiesLeftToSpawn == 0)
+        {
+            EndWave();
+        }
     }
 
 
@@ -61,4 +81,18 @@ public class EnemySpawner : MonoBehaviour
         GameObject prefabToSpawn = enemyPrefabs[0];
         Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
     }
+
+    private void EnemyDestroyed()
+    {
+        enemiesAlive--;
+    }
+    
+    private void EndWave()
+    {
+        currentWave++;
+        isSpawning = false;
+        timeSinceLastSpawn = 0f;
+        StartCoroutine(StartWave());
+    }
+
 }
