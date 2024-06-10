@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - line: Test 1
-    actor: {fileID: 11400000, guid: ef197e4a0c4a5ab41a295112be51608f, type: 2}
+    actor: {fileID: 0}
   - line: Test 2
-    actor: {fileID: 11400000, guid: ce729e230472c8646b389e9466982988, type: 2}
-  - line: This is the third line, I mean test.
-    actor: {fileID: 11400000, guid: ef197e4a0c4a5ab41a295112be51608f, type: 2}
+    actor: {fileID: 0}
+  - line: hello i am russia, are you the russia?
+    actor: {fileID: 0}
   - line: Testing ig. #4
-    actor: {fileID: 11400000, guid: ce729e230472c8646b389e9466982988, type: 2}
+    actor: {fileID: 0}
   - line: Maybe over there is test 5
-    actor: {fileID: 11400000, guid: ef197e4a0c4a5ab41a295112be51608f, type: 2}
+    actor: {fileID: 0}
