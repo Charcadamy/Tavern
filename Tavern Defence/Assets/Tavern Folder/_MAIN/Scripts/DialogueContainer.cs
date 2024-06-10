@@ -7,6 +7,8 @@ using UnityEngine;
 public class DialogueLine
 {
     public string line;
+    public Actor actor;
+
 }
 
 [CreateAssetMenu]

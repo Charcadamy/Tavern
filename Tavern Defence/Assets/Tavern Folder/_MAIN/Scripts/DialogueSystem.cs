@@ -8,6 +8,7 @@ using System;
 public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
+    [SerializeField] TextMeshProUGUI nameTag;
     DialogueContainer currentDialogue;
 
     [SerializeField]
@@ -22,6 +23,7 @@ public class DialogueSystem : MonoBehaviour
     int index;
 
     [SerializeField] DialogueContainer debugDialogueContainer;
+
 
     private void Start()
     {
@@ -93,6 +95,13 @@ public class DialogueSystem : MonoBehaviour
 
         lineToShow = currentDialogue.lines[index].line;
         //Removes lines one by one to display.
+
+        if (currentDialogue.lines[index].actor != null)
+
+        {
+            nameTag.text = currentDialogue.lines[index].actor.Name;
+        }
+        // To check if there is a character (actor) attached to it || If so get the name and shove it in the text - elijah
 
         totalTimeToType = lineToShow.Length * timePerLetter;
         currentTime = 0f;

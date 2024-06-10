@@ -1112,7 +1112,7 @@ GameObject:
   - component: {fileID: 640540018}
   - component: {fileID: 640540017}
   m_Layer: 5
-  m_Name: Name
+  m_Name: nameTag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1928,6 +1928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1276108372}
+  nameTag: {fileID: 640540017}
   visibleTextPercent: 0
   timePerLetter: 0.05
   debugDialogueContainer: {fileID: 11400000, guid: 611138909757a0040a03b183f32e60ab, type: 2}
