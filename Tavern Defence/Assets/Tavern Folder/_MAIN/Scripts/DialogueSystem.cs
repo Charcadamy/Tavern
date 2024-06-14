@@ -97,7 +97,7 @@ public class DialogueSystem : MonoBehaviour
         //Removes lines one by one to display.
         if (currentDialogue.lines[index].actor != null)
         {
-            nameTag.text = currentDialogue.lines[index].actor.Name;
+          //  nameTag.text = currentDialogue.lines[index].actor.Name; THIS BREAKS UNITY
         }
         // To check if there is a character (actor) attached to it || If so get the name and shove it in the text - elijah
 
